@@ -1,1 +1,6 @@
 # Anjay Selebew
+
+# OS RECOMMENDED :
+• DEBIAN 9 LTS
+• DEBIAN 10 LTS
+
