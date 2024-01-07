@@ -1,10 +1,10 @@
 #!/bin/bash
-REPO="https://raw.githubusercontent.com/SatanTech/SFTunnel/main/"
+REPO="https://raw.githubusercontent.com/SatanTec/SFTunnel/main/"
 
-wget -q -O /etc/systemd/system/limitvmess.service "${REPO}bim/limitvmess.service" && chmod +x limitvmess.service >/dev/null 2>&1
-wget -q -O /etc/systemd/system/limitvless.service "${REPO}bim/limitvless.service" && chmod +x limitvless.service >/dev/null 2>&1
+wget -q -O /etc/systemd/system/limitvmess.service "${REPO}bin/limitvmess.service" && chmod +x limitvmess.service >/dev/null 2>&1
+wget -q -O /etc/systemd/system/limitvless.service "${REPO}bin/limitvless.service" && chmod +x limitvless.service >/dev/null 2>&1
 wget -q -O /etc/systemd/system/limittrojan.service "${REPO}bin/limittrojan.service" && chmod +x limittrojan.service >/dev/null 2>&1
-wget -q -O /etc/systemd/system/limitshadowsocks.service "${REPO}files/limitshadowsocks.service" && chmod +x limitshadowsocks.service >/dev/null 2>&1
+wget -q -O /etc/systemd/system/limitshadowsocks.service "${REPO}bin/limitshadowsocks.service" && chmod +x limitshadowsocks.service >/dev/null 2>&1
 wget -q -O /etc/xray/limit.vmess "${REPO}bin/vmess" >/dev/null 2>&1
 wget -q -O /etc/xray/limit.vless "${REPO}bin/vless" >/dev/null 2>&1
 wget -q -O /etc/xray/limit.trojan "${REPO}bin/trojan" >/dev/null 2>&1
@@ -28,4 +28,62 @@ systemctl enable --now limitshadowsocks
 # systemctl restart limitshadowsocks
 
 cd
+wget -q -O /usr/bin/limit-ip "${REPO}bin/limit-ip"
+chmod +x /usr/bin/*
+cd /usr/bin
+sed -i 's/\r//' limit-ip
+cd
+clear
+# // SERVICE LIMIT IP VMESS
+cat >/etc/systemd/system/vmip.service << EOF
+[Unit]
+Description=My
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/bin/limit-ip vmip
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# // SERVICE LIMIT IP VLESS
+cat >/etc/systemd/system/vlip.service << EOF
+[Unit]
+Description=My
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/bin/limit-ip vlip
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# // SERVICE LIMIT TROJAN
+cat >/etc/systemd/system/trip.service << EOF
+[Unit]
+Description=My
+ProjectAfter=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/bin/limit-ip trip
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl restart vmip
+systemctl enable vmip
+systemctl restart vlip
+systemctl enable vlip
+systemctl restart trip
+systemctl enable trip
+
 rm -rf /root/fv-tunnel
