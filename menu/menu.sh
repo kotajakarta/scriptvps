@@ -22,16 +22,16 @@ DATE=$(date +%m/%d/%Y)
 DATE2=$(date -R | cut -d " " -f -5)
 IPVPS=$(curl -s ipinfo.io/ip?token=7578ac19afd785 )
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Isadmin=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $5}')
-Exp2=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $3}')
+Isadmin=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $5}')
+Exp2=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $3}')
 export RED='\033[0;31m'
 export GREEN='\033[0;32m'
 
-Name=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $2}')
 ipsaya=$(curl -s -4 icanhazip.com)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip"
+data_ip="https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip"
 checking_sc() {
     useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
     if [[ $date_list < $useexp ]]; then
@@ -68,11 +68,11 @@ Key=$(curl -sS https://raw.githubusercontent.com/SatanTech/license/main/key | gr
 KEY2=$(curl -sS https://raw.githubusercontent.com/SatanTech/license/main/key | grep $kode | awk '{print $4}')
 ADMIN=$(curl -sS https://raw.githubusercontent.com/SatanTech/license/main/key | grep $kode | awk '{print $5}')
 TOTALIP=$(curl -sS https://raw.githubusercontent.com/SatanTech/license/main/key | grep $kode | awk '{print $6}')
-U2=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $2}')
-U3=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $3}')
-U4=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $4}')
-U5=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $5}')
-U6=$(curl -sS https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip | grep $MYIP | awk '{print $6}')
+U2=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $2}')
+U3=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $3}')
+U4=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $4}')
+U5=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $5}')
+U6=$(curl -sS https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip | grep $MYIP | awk '{print $6}')
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
 if [[ $kode == "SFGG" ]]; then
@@ -89,7 +89,7 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "30 days" +"%Y-%m-%d")
 mkdir /root/rmbl
 cd /root/rmbl
-wget https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip >/dev/null 2>&1
+wget https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip >/dev/null 2>&1
 
 if [ "$ADMIN" = "ON" ]; then
 sed -i '/# RESELLER/a ### $author $hhari $MYIP $ADMIN $TOTALIP' /root/rmbl/ipmini
@@ -125,7 +125,7 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
 mkdir /root/rmbl
 cd /root/rmbl
-wget https://raw.githubusercontent.com/SatanFusionOfficial/permission/main/ip >/dev/null 2>&1
+wget https://raw.githubusercontent.com/kotajakarta/scriptvps/main/ip >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
 sed -i '/# RESELLER/a ### $author $hhari $MYIP $ADMIN $TOTALIP' /root/rmbl/ipmini
 else
