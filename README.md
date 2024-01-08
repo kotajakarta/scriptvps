@@ -1,5 +1,5 @@
-# Anjay Selebew
+# bETA
 
-# OS RECOMMENDED :
+# rEKOMENDASI Os :
 • DEBIAN 9 & 10 LTS
 
