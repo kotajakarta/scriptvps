@@ -2,17 +2,17 @@
 
 apt install rclone
 printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/SatanTech/SFTunnel/main/install/rclone.conf"
+wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/kotajakarta/scriptvps/main/install/rclone.conf"
 git clone  https://github.com/casper9/wondershaper.git
 cd wondershaper
 make install
 cd
 rm -rf wondershaper
 cd /usr/bin
-wget -O backup "https://raw.githubusercontent.com/SatanTech/SFTunnel/main/menu/backup.sh"
-wget -O restore "https://raw.githubusercontent.com/SatanTech/SFTunnel/main/menu/restore.sh"
-wget -O cleaner "https://raw.githubusercontent.com/SatanTech/SFTunnel/main/install/cleaner.sh"
-wget -O xp "https://raw.githubusercontent.com/SatanTech/SFTunnel/main/install/xp.sh"
+wget -O backup "https://raw.githubusercontent.com/kotajakarta/scriptvps/main/menu/backup.sh"
+wget -O restore "https://raw.githubusercontent.com/kotajakarta/scriptvps/main/menu/restore.sh"
+wget -O cleaner "https://raw.githubusercontent.com/kotajakarta/scriptvps/main/install/cleaner.sh"
+wget -O xp "https://raw.githubusercontent.com/kotajakarta/scriptvps/main/install/xp.sh"
 chmod +x /usr/bin/backup
 chmod +x /usr/bin/restore
 chmod +x /usr/bin/cleaner
@@ -51,7 +51,7 @@ service cron restart > /dev/null 2>&1
 
 # > Pasang Limit
 
-wget "https://raw.githubusercontent.com/SatanTech/SFTunnel/main/bin/limit.sh" >/dev/null 2>&1
+wget "https://raw.githubusercontent.com/kotajakarta/scriptvps/main/bin/limit.sh" >/dev/null 2>&1
 
 chmod +x limit.sh && bash limit.sh >/dev/null 2>&1
     
